@@ -2832,6 +2832,10 @@ ol {
 	}
 	.offcanvas__logo {
 		margin-bottom: 30px;
+		width: 200px;
+		height: 100px;
+		margin-top: 10px;
+		margin-left: 20px;
 	}
 	.offcanvas__logo a {
 		display: inline-block;
