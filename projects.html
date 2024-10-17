@@ -147,10 +147,10 @@
         </div>
     </div>
     <div class="col-lg-12 text-center p-4" @click="galleryButton1()" v-show="hideButton1">
-        <a href="#" class="primary-btn normal-btn">Load More</a>
+        <a href="#1" class="primary-btn normal-btn">Load More</a>
     </div>
     <!-- Gallery #2--> 
-    <div class="row m-2 p-2" v-show="secondGallery">
+    <div class="row m-2 p-2" v-show="secondGallery" id="1">
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
         <img
             src="img/galerie/14.jpeg"
@@ -194,10 +194,10 @@
         </div>
     </div>
     <div class="col-lg-12 text-center p-4" @click="galleryButton2" v-show="hideButton2">
-        <a href="#" class="primary-btn normal-btn">Load More</a>
+        <a href="#2" class="primary-btn normal-btn">Load More</a>
     </div>
     <!-- Gallery #3 -->
-    <div class="row m-2 p-2" v-show="thirdGallery">
+    <div class="row m-2 p-2" v-show="thirdGallery" id="2">
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
         <img
             src="img/galerie/20.jpeg"
@@ -241,10 +241,10 @@
         </div>
     </div>
     <div class="col-lg-12 text-center p-4" @click="galleryButton3" v-show="hideButton3">
-        <a href="#" class="primary-btn normal-btn">Load More</a>
+        <a href="#3" class="primary-btn normal-btn">Load More</a>
     </div>
     <!-- gallery #4 -->
-    <div class="row m-2 p-2" v-show="fourthGallery">
+    <div class="row m-2 p-2" v-show="fourthGallery" id="3">
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
         <img
             src="img/galerie/39.jpeg"
@@ -481,7 +481,7 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/slick.min.js"></script>
 <script src="js/main.js"></script>
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="js/vue.global.js.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
     const { createApp, ref } = Vue
