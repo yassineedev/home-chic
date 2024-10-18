@@ -12,6 +12,8 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+    <!-- animate css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/test.css">
     <!-- Css Styles -->
@@ -103,7 +105,7 @@
 
     <!-- Project Page Section Begin -->
     <!-- Gallery--> 
-    <div class="row m-2 p-2" v-show="firstGallery">
+    <div class="row m-2 p-2 animate__animated animate__fadeInUp" v-show="firstGallery" id="1">
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
         <img
             src="img/galerie/1.jpeg"
@@ -112,7 +114,7 @@
         />
     
         <img
-            src="img/galerie/5.jpeg"
+            src="img/galerie/48.jpeg"
             class="w-100 shadow-1-strong rounded mb-4"
             alt="Wintry Mountain Landscape"
         />
@@ -147,10 +149,11 @@
         </div>
     </div>
     <div class="col-lg-12 text-center p-4" @click="galleryButton1()" v-show="hideButton1">
-        <a href="#1" class="primary-btn normal-btn">Load More</a>
+        <a href="#1" class="primary-btn normal-btn load-more">Load More</a>
     </div>
+    <div v-show="allGallery">
     <!-- Gallery #2--> 
-    <div class="row m-2 p-2" v-show="secondGallery" id="1">
+    <div class="row m-2 p-2 animate__animated animate__fadeInUp" >
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
         <img
             src="img/galerie/14.jpeg"
@@ -193,11 +196,11 @@
         />
         </div>
     </div>
-    <div class="col-lg-12 text-center p-4" @click="galleryButton2" v-show="hideButton2">
-        <a href="#2" class="primary-btn normal-btn">Load More</a>
-    </div>
+    <!-- <div class="col-lg-12 text-center p-4" @click="galleryButton2" v-show="hideButton2">
+        <a href="#2" class="primary-btn normal-btn load-more">Load More</a>
+    </div> -->
     <!-- Gallery #3 -->
-    <div class="row m-2 p-2" v-show="thirdGallery" id="2">
+    <div class="row m-2 p-2 animate__animated animate__fadeInUp" id="2">
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
         <img
             src="img/galerie/20.jpeg"
@@ -240,11 +243,11 @@
         />
         </div>
     </div>
-    <div class="col-lg-12 text-center p-4" @click="galleryButton3" v-show="hideButton3">
-        <a href="#3" class="primary-btn normal-btn">Load More</a>
-    </div>
+    <!-- <div class="col-lg-12 text-center p-4" @click="galleryButton3" v-show="hideButton3">
+        <a href="#3" class="primary-btn normal-btn load-more">Load More</a>
+    </div> -->
     <!-- gallery #4 -->
-    <div class="row m-2 p-2" v-show="fourthGallery" id="3">
+    <div class="row m-2 p-2 animate__animated animate__fadeInUp" id="3">
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
         <img
             src="img/galerie/39.jpeg"
@@ -287,9 +290,10 @@
         />
         </div>
     </div>
-    <div class="col-lg-12 text-center p-4" v-show="hideButton4">
-        <a href="#" class="primary-btn normal-btn" @click="closeGallery()">close all</a>
     </div>
+    <!-- <div class="col-lg-12 text-center p-4" v-show="hideButton4">
+        <a href="#" class="primary-btn normal-btn load-more" @click="closeGallery()">close all</a>
+    </div> -->
     <!-- gallery #5 
     <div class="row m-2 p-2">
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
@@ -489,61 +493,27 @@
     createApp({
       setup() {
         const firstGallery = ref (true)
-        const secondGallery = ref (false)
-        const thirdGallery = ref (false)
-        const fourthGallery = ref (false)
+        const allGallery = ref (false)
         const hideButton1 = ref (true)
-        const hideButton2 = ref (false)
-        const hideButton3 = ref (false)
-        const hideButton4 = ref (false)
 
         function galleryButton1() {
             firstGallery.value = true
-            secondGallery.value = true
-            thirdGallery.value = false
-            fourthGallery.value = false
+           allGallery.value = true
             //hide button
+            
+            $(".col-lg-12").slice(0, 3).show();
+            $("body").on('click touchstart', '.load-more', function (e) {
+                e.preventDefault();
+                $(".col-lg-12:hidden").slice(0, 3).slideDown();
+                $('html,body').animate({
+                    scrollTop: $(this).offset().top
+                }, 1000);
             hideButton1.value = false
-            hideButton2.value = true
-            hideButton3.value = false
-            hideButton4.value = false
-        }
-        function galleryButton2() {
-            firstGallery.value = true
-            secondGallery.value = true
-            thirdGallery.value = true
-            fourthGallery.value = false
-            //hide button
-            hideButton1.value = false
-            hideButton2.value = false
-            hideButton3.value = true
-            hideButton4.value = false
-        }
-        function galleryButton3() {
-            firstGallery.value = true
-            secondGallery.value = true
-            thirdGallery.value = true
-            fourthGallery.value = true
-            //hide button
-            hideButton1.value = false
-            hideButton2.value = false
-            hideButton3.value = false
-            hideButton4.value = true
-        }
-        function closeGallery() {
-            firstGallery.value = true
-            secondGallery.value = false
-            thirdGallery.value = false
-            fourthGallery.value = false
-            //hide button
-            hideButton1.value = true
-            hideButton2.value = false
-            hideButton3.value = false
-            hideButton4.value = false
+            });
         }
         return {
-          firstGallery,secondGallery,thirdGallery,fourthGallery,hideButton1,hideButton2,hideButton3,hideButton4,
-          galleryButton1,galleryButton2,galleryButton3,closeGallery,
+          firstGallery,allGallery,hideButton1,
+          galleryButton1,
         }
       }
     }).mount('#app')
