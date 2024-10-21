@@ -29,13 +29,40 @@
         $(".offcanvas-menu-overlay").removeClass("active");
     });
 
+    const dropdownTest = document.querySelectorAll('.dropdown-btn');
 
+    // Обработчик события клика на документе
+    document.addEventListener('click', (e) => {
+        // Проверяем, было ли нажатие вне элемента выпадающего списка
+        if (!e.target.closest('.dropdown-btn')) {
+            // Закрываем все выпадающие списки
+            dropdown.forEach(item => {
+                item.closest('.dropdownTest').classList.remove('active');
+            });
+        }
+    });
+    dropdownTest.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Закрываем все другие выпадающие списки
+            dropdown.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.closest('.dropdownTest').classList.remove('active');
+                }
+            });
+            
+            // Открываем/закрываем текущий выпадающий список
+            item.closest('.dropdown').classList.toggle('active');
+        });
+    })
     /*------------------
 		Navigation
 	--------------------*/
     $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap',
-        allowParentLinks: true
+        allowParentLinks: true,
+
     });
 
     /*-----------------------
@@ -178,5 +205,6 @@
             }
         });
     });
+    
 
 })(jQuery);

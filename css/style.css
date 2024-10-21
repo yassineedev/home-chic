@@ -298,7 +298,38 @@ ol {
 /*---------------------
   Header
 -----------------------*/
+/* .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+} */
+.dropdownTest {
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    border: 1px solid #E8EDF9;
+    background: #ffffff;
+    padding: 10px 20px;
+    left: 0;
+    border-radius: 6px;
+    right: auto;
+    box-shadow: 1px 6px 18px -12px #0000006e;
+    flex-direction: column;
+  gap:10px 0;
+  min-width: 100%
+}
 
+.dropdownTest.active .dropdown-content {
+    display: flex;
+}
 .header {
 	position: absolute;
 	width: 100%;
