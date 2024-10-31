@@ -298,16 +298,7 @@ ol {
 /*---------------------
   Header
 -----------------------*/
-/* .dropdown-toggle::after {
-    display: inline-block;
-    margin-left: .255em;
-    vertical-align: .255em;
-    content: "";
-    border-top: .3em solid;
-    border-right: .3em solid transparent;
-    border-bottom: 0;
-    border-left: .3em solid transparent;
-} */
+
 .dropdownTest {
     position: relative;
 }
@@ -346,10 +337,10 @@ ol {
 
 .header__logo a {
 	display: inline-block;
-	width: 100px;
-	height: 100px;
-	margin-top: 10px;
-	margin-left: 20px;
+	width: 160px;
+	height: 130px;
+	margin-top: 0px;
+	margin-left: 0px;
   
 }
 
@@ -475,6 +466,12 @@ ol {
 
 .hero {
 	position: relative;
+}
+.text-bold{
+	font-weight: 600;
+}
+.desc-bold{
+	font-weight: 700;
 }
 
 .hero__items {
