@@ -95,29 +95,31 @@
     /*--------------------------
         Project Slider
     ----------------------------*/
-    $(document).ready(function(){
-        $(".project__slider").owlCarousel({
-            loop: true,                 // Enables looping of slides
-            margin: 10,                 // Margin between items
-            nav: true,                  // Enables next/prev buttons
-            autoplay: true,             // Enables autoplay
-            autoplayTimeout: 15000,      // Time between slides in milliseconds
-            autoplayHoverPause: true,
-            smartSpeed: 14000,   // Pause autoplay on hover
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 4
-                }
+    $(".project__slider").owlCarousel({
+        loop: true,
+        margin: 0,
+        items: 4,
+        dots: false,
+        nav: true,
+        navText: ["<span class='arrow_carrot-left'><span/>", "<span class='arrow_carrot-right'><span/>"],
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: false,
+        responsive: {
+            320: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            992: {
+                items: 3
+            },
+            1200: {
+                items: 4
             }
-        });
-     });
-     
+        }
+    });
     /*-----------------------------
         Testimonial Slider
     -------------------------------*/
