@@ -10,9 +10,7 @@
         $("#preloder").delay(200).fadeOut("slow");
     });
 
-    /*------------------
-        Background Set
-    --------------------*/
+    
     $('.set-bg').each(function () {
         var bg = $(this).data('setbg');
         $(this).css('background-image', 'url(' + bg + ')');
@@ -31,11 +29,9 @@
 
     const dropdownTest = document.querySelectorAll('.dropdown-btn');
 
-    // Обработчик события клика на документе
+    
     document.addEventListener('click', (e) => {
-        // Проверяем, было ли нажатие вне элемента выпадающего списка
         if (!e.target.closest('.dropdown-btn')) {
-            // Закрываем все выпадающие списки
             dropdown.forEach(item => {
                 item.closest('.dropdownTest').classList.remove('active');
             });
@@ -45,7 +41,6 @@
         item.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Закрываем все другие выпадающие списки
             dropdown.forEach(otherItem => {
                 if (otherItem !== item) {
                     otherItem.closest('.dropdownTest').classList.remove('active');
@@ -77,7 +72,7 @@
         navText: ["<i class='fa fa-angle-left'><i/>", "<i class='fa fa-angle-right'><i/>"],
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
-        smartSpeed: 1500,
+        smartSpeed: 4000,
         autoHeight: false,
         autoplay: true,
         mouseDrag: false,
@@ -100,32 +95,29 @@
     /*--------------------------
         Project Slider
     ----------------------------*/
-    $(".project__slider").owlCarousel({
-        loop: true,
-        margin: 0,
-        items: 4,
-        dots: false,
-        nav: true,
-        navText: ["<span class='arrow_carrot-left'><span/>", "<span class='arrow_carrot-right'><span/>"],
-        smartSpeed: 1200,
-        autoHeight: false,
-        autoplay: false,
-        responsive: {
-            320: {
-                items: 1
-            },
-            768: {
-                items: 2
-            },
-            992: {
-                items: 3
-            },
-            1200: {
-                items: 4
+    $(document).ready(function(){
+        $(".project__slider").owlCarousel({
+            loop: true,                 // Enables looping of slides
+            margin: 10,                 // Margin between items
+            nav: true,                  // Enables next/prev buttons
+            autoplay: true,             // Enables autoplay
+            autoplayTimeout: 15000,      // Time between slides in milliseconds
+            autoplayHoverPause: true,
+            smartSpeed: 14000,   // Pause autoplay on hover
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 4
+                }
             }
-        }
-    });
-
+        });
+     });
+     
     /*-----------------------------
         Testimonial Slider
     -------------------------------*/
@@ -205,6 +197,16 @@
             }
         });
     });
+
+    var owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:4,
+    loop:true,
+    margin:10,
+    autoplay:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true
+});    
     
 
 })(jQuery);
