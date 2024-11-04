@@ -100,11 +100,12 @@
         margin: 0,
         items: 4,
         dots: false,
+        loop: true,
         nav: true,
         navText: ["<span class='arrow_carrot-left'><span/>", "<span class='arrow_carrot-right'><span/>"],
         smartSpeed: 1200,
         autoHeight: false,
-        autoplay: false,
+        autoplay: true,
         responsive: {
             320: {
                 items: 1
